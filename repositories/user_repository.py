@@ -25,3 +25,16 @@ def select_all():
     return users
 
 
+def select(id):
+    user = None
+
+    sql = "SELECT * FROM users WHERE id = %s"
+    values = [id]
+    result = run_sql(sql,values)[0]
+
+    if result is not None:
+        user = User(result['name'], result['goal_daily'], result['id'])
+        user.total_daily = result['total_daily']
+        user.total_overall = result['total_overall']
+    
+    return user

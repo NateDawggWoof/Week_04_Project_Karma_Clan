@@ -23,5 +23,8 @@ user_repo.save(user2)
 
 print(user_repo.select_all())
 
+print(user_repo.select(2))
+
+
 
 pdb.set_trace()
