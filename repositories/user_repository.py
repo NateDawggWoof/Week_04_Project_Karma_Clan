@@ -1,3 +1,4 @@
+from pdb import run
 from db.run_sql import run_sql
 from models.user import User
 
@@ -9,4 +10,18 @@ def save(user):
 
     user.id = results[0]['id']
     return user
+
+def select_all():
+    users = []
+
+    sql = "SELECT * FROM users"
+    results = run_sql(sql)
+
+    for row in results:
+        user = User(row['name'], row['goal_daily'], row['id'])
+        user.total_daily = row['total_daily']
+        user.total_overall = row['total_overall']
+        users.append(user)
+    return users
+
 

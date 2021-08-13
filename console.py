@@ -15,4 +15,13 @@ user1.total_daily = 100
 user1.total_overall = 1100
 user_repo.save(user1)
 
+user2 = User("Lauren Fraser", 1000)
+
+user2.total_daily = 250
+user2.total_overall = 2100
+user_repo.save(user2)
+
+print(user_repo.select_all())
+
+
 pdb.set_trace()
