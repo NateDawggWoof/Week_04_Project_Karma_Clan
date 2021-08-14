@@ -38,3 +38,13 @@ def select(id):
         user.total_overall = result['total_overall']
     
     return user
+
+
+def delete(id):
+    sql = "DELETE FROM users WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
+def delete_all():
+    sql = "DELETE FROM users"
+    run_sql(sql)
