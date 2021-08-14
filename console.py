@@ -29,4 +29,10 @@ print(user_repo.select(2))
 action1 = Action("Greet Stranger","Say hello to a stranger and ask how they are.","Social", 100)
 action_repo.save(action1)
 
+action2 = Action("pick up trash","Pick up a single piece of trash and dispose of it correctly","Enviromental", 100)
+action_repo.save(action1)
+
+print(action_repo.select_all())
+print(action_repo.select(2))
+
 pdb.set_trace()
