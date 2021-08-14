@@ -39,5 +39,11 @@ print(action_repo.select(2))
 deed1 = Deed(user1,action1,"14/08/2021")
 deed_repo.save(deed1)
 
+deed2 = Deed(user2,action2,"14/08/2021")
+deed_repo.save(deed2)
+
+print(action_repo.select_all())
+print(action_repo.select(2))
+
 
 pdb.set_trace()
