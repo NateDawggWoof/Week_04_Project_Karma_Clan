@@ -33,3 +33,13 @@ def select(id):
         deed = Deed(result['user_id'], result['action_id'], result['date'], result['id'])
     
     return deed
+
+def delete(id):
+    sql = "DELETE FROM deeds WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
+
+def delete_all():
+    sql = "DELETE FROM deeds"
+    run_sql(sql)
