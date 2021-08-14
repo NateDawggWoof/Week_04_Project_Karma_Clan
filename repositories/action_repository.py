@@ -33,3 +33,12 @@ def select(id):
         action = Action(result['name'], result['description'], result['type'], result['value'], result['id'])
     
     return action
+
+def delete(id):
+    sql = "DELETE FROM actions WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
+def delete_all():
+    sql = "DELETE FROM actions"
+    run_sql(sql)
