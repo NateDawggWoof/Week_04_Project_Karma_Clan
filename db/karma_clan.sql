@@ -15,7 +15,8 @@ CREATE TABLE  actions (
     id SERIAL PRIMARY KEY,
     name VARCHAR (255),
     description TEXT,
-    type VARCHAR(255)
+    type VARCHAR(255),
+    value INT
 );
 
 CREATE TABLE deeds (

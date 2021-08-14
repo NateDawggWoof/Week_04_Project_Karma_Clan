@@ -5,6 +5,7 @@ from models.deed import Deed
 from models.user import User
 
 import repositories.user_repository as user_repo
+import repositories.action_repository as action_repo
 
 
 
@@ -25,6 +26,7 @@ print(user_repo.select_all())
 
 print(user_repo.select(2))
 
-
+action1 = Action("Greet Stranger","Say hello to a stranger and ask how they are.","Social", 100)
+action_repo.save(action1)
 
 pdb.set_trace()
