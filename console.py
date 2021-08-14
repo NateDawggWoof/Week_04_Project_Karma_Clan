@@ -6,6 +6,7 @@ from models.user import User
 
 import repositories.user_repository as user_repo
 import repositories.action_repository as action_repo
+import repositories.deed_repository as deed_repo
 
 
 
@@ -34,5 +35,9 @@ action_repo.save(action2)
 
 print(action_repo.select_all())
 print(action_repo.select(2))
+
+deed1 = Deed(user1,action1,"14/08/2021")
+deed_repo.save(deed1)
+
 
 pdb.set_trace()

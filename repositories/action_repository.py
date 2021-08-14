@@ -10,6 +10,7 @@ def save(action):
     action.id = results[0]['id']
     return action
 
+
 def select_all():
     actions = []
 
@@ -34,10 +35,12 @@ def select(id):
     
     return action
 
+
 def delete(id):
     sql = "DELETE FROM actions WHERE id = %s"
     values = [id]
     run_sql(sql, values)
+
 
 def delete_all():
     sql = "DELETE FROM actions"
