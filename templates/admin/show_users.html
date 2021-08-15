@@ -1,0 +1,23 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<h1>Users</h1>
+
+
+
+{% for user in all_users  %}
+<div>
+    <p>ID: {{user.id}}  Name: {{user.name}}  </p>
+    <a href='/admin/usera/edit/{{user.id}}'>
+        <button onclick="document.location='default.asp'">Edit User</button>
+    </a>
+    <form action="/admin/usersa/delete/{{user.id}}" method="POST">
+        <input class="btn btn--danger" type="submit" value="delete" />
+    </form>
+
+
+</div>
+{% endfor %}
+
+
+{% endblock %}

@@ -43,3 +43,8 @@ def delete(id):
 def delete_all():
     sql = "DELETE FROM deeds"
     run_sql(sql)
+
+def delete_all_user_deeds(id):
+    sql = "DELETE FROM deeds WHERE user_id = %s"
+    values = [id]
+    run_sql(sql, values)

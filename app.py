@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 
-from controllers.admin_controller import
+from controllers.Admin_controller import admin_blueprint
 # from controllers.location_controller import locations_blueprint
 # from controllers.user_controller import users_blueprint
 
