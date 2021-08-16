@@ -58,6 +58,9 @@ deed_repo.save(deed1)
 deed2 = Deed(user2,action2,"14/08/2021")
 deed_repo.save(deed2)
 
+deed2.date = "16/08/2021"
+deed_repo.update(deed2)
+
 print(action_repo.select_all())
 print(action_repo.select(2))
 
