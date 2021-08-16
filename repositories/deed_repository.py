@@ -49,6 +49,11 @@ def delete_all_user_deeds(id):
     values = [id]
     run_sql(sql, values)
 
+def delete_all_action_deeds(id):
+    sql = "DELETE FROM deeds WHERE action_id = %s"
+    values = [id]
+    run_sql(sql, values)
+
 def update(deed):
     sql = "UPDATE deeds SET (user_id, action_id, date) = (%s,%s,%s) WHERE id = %s"
     values = [deed.user.id, deed.action.id, deed.date, deed.id]
