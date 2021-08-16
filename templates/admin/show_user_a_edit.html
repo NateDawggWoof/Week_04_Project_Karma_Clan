@@ -5,9 +5,9 @@
 <p>ID: {{user.id}}  Name: {{user.name_first}}  </p>
 
 <form action="/admin/usera/edit/{{user.id}}" method="post">
-    <label for="name_first">First name:</label><br>
+    <label for="name_first">First Name:</label><br>
     <input type="text" id="name_first" name="name_first" value="{{user.name_first}}"> <br>
-    <label for="name_last">Last name:</label><br>
+    <label for="name_last">Last Name:</label><br>
     <input type="text" id="name_last" name="name_last" value="{{user.name_last}}"> <br>
     <label for="goal_daily">Daily Goal:</label><br>
     <input type="number" id="goal_daily" name="goal_daily" value="{{user.goal_daily}}">

@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, Blueprint
 
-import models.user 
+from models.user import User
 import repositories.user_repository as user_repo
 import repositories.deed_repository as deed_repo
 
@@ -43,4 +43,19 @@ def update_user(id):
     user_repo.update(user)
     
     return redirect('/admin/usersa')
+
+
+@admin_blueprint.route("/admin/usera/new", methods=['POST'])
+def new_user():
+    name_first = request.form['name_first']
+    name_last = request.form['name_last']
+    goal_daily = request.form['goal_daily']
+    
+    user = User(name_first,name_last,goal_daily)
+    
+    user_repo.save(user)
+    
+    return redirect('/admin/usersa')
+
+
 

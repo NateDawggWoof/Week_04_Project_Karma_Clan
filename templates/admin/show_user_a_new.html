@@ -1,8 +1,8 @@
 {% extends 'base.html'%}
 
 {% block content %}
+<h2>New User</h2>
 
-<h2>Add New User</h2>
 <form action="/admin/usera/new" method="post">
     <label for="name_first">First Name:</label><br>
     <input type="text" id="name_first" name="name_first" value="?" required autofocus> <br>
@@ -12,22 +12,6 @@
     <input type="number" id="goal_daily" name="goal_daily" value="1000" required>
     <input type="submit" value="Submit">
 </form>
-
-<h2>Users</h2>
-
-{% for user in all_users  %}
-<div>
-    <p>ID: {{user.id}}  Name: {{user.name_first}} {{user.name_last}}  </p>
-    <a href='/admin/usera/edit/{{user.id}}'>
-        <button onclick="document.location='default.asp'">Edit User</button>
-    </a>
-    <form action="/admin/usersa/delete/{{user.id}}" method="POST">
-        <input class="btn btn--danger" type="submit" value="delete" />
-    </form>
-
-
-</div>
-{% endfor %}
 
 
 {% endblock %}
