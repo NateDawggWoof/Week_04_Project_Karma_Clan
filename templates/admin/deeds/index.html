@@ -2,15 +2,15 @@
 
 {% block content %}
 
-<h2>Add New Action</h2>
-<form action="/admin/actions/new" method="post">
-    <label for="action_name">Action Name:</label><br>
-    <input type="text" id="action_name" name="action_name" value="?" required autofocus> <br>
+<h2>Add Deed</h2>
+<form action="/admin/deeds/new" method="post">
+    <label for="deed_user">User:</label><br>
+    <input type="text" id="deed_user" name="deed_user" value="?" required autofocus> <br>
   
-    <label for="action_description">Action Description:</label><br>
-    <input type="text" id="action_description" name="action_description" value="?" required> <br>
+    <label for="deed_action">Action:</label><br>
+    <input type="text" id="deed_action" name="deed_action" value="?" required> <br>
 
-    <label for="action_type">Action Type:</label><br>
+    <label for="deed_date">Date:</label><br>
     <input type="text" id="action_type" name="action_type" value="?" required> <br>
   
     <label for="action_value">Action Value:</label><br>
@@ -19,15 +19,15 @@
     <input type="submit" value="Submit">
 </form>
 
-<h2>Actions</h2>
+<h2>Deeds</h2>
 
-{% for action in all_actions  %}
+{% for deed in all_deeds  %}
 <div>
-    <p>ID: {{action.id}} Name: {{action.name}}  Desription: {{action.description}}  Name: {{action.value}}  </p>
-    <a href='/admin/actions/edit/{{action.id}}'>
+    <p>ID: {{deed.id}} User: {{deed.user.name_first}}  Action: {{deed.action.name}}  Date: {{deed.date}}  </p>
+    <a href='/admin/actions/edit/{{deed.id}}'>
         <button onclick="document.location='default.asp'">Edit</button>
     </a>
-    <form action="/admin/actions/delete/{{action.id}}" method="POST">
+    <form action="/admin/actions/delete/{{deed.id}}" method="POST">
         <input class="btn btn--danger" type="submit" value="delete" />
     </form>
 </div>

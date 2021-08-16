@@ -12,4 +12,6 @@ admin_deeds_blueprint = Blueprint("admin_deeds", __name__)
 @admin_deeds_blueprint.route('/admin/deeds')
 def admin():
     deeds = deed_repo.select_all()
-    return render_template("admin/deeds/index.html", all_deeds = deeds)
+    users = user_repo.select_all()
+    actions = action_repo.select_all()
+    return render_template("admin/deeds/index.html", all_deeds = deeds, all_users = users, all_actions = actions)
