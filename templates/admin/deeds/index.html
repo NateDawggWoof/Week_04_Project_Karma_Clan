@@ -2,6 +2,27 @@
 
 {% block content %}
 
+
+<!-- <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+</style> -->
+
+
+
 <h2>Add Deed</h2>
 <form action="/admin/deeds/new" method="post">
     <label for="deed_user">User:</label><br>
@@ -11,18 +32,34 @@
     <input type="text" id="deed_action" name="deed_action" value="?" required> <br>
 
     <label for="deed_date">Date:</label><br>
-    <input type="text" id="action_type" name="action_type" value="?" required> <br>
+    <input type="text" id="deed_date" name="deed_date" value="?" required> <br>
   
-    <label for="action_value">Action Value:</label><br>
-    <input type="number" id="action_value" name="action_value" value="100" required>
-   
     <input type="submit" value="Submit">
 </form>
 
 <h2>Deeds</h2>
+<table>
+    <tr>
+      <th>Deed ID</th>
+      <th>User</th>
+      <th>Action</th>
+      <th>Value</th>
+      <th>Date</th>
+    </tr>
 
 {% for deed in all_deeds  %}
-<div>
+ 
+<tr>
+    <td>{{deed.id}}</td>
+    <td>{{deed.user}} {{deed.user.name_last}}</td>
+    <td>{{deed.action.name}}</td>
+    <td>{{deed.action.value}}</td>
+    <td>{{deed.date}}</td>
+</tr>
+
+
+
+<!-- <div>
     <p>ID: {{deed.id}} User: {{deed.user.name_first}}  Action: {{deed.action.name}}  Date: {{deed.date}}  </p>
     <a href='/admin/actions/edit/{{deed.id}}'>
         <button onclick="document.location='default.asp'">Edit</button>
@@ -30,8 +67,12 @@
     <form action="/admin/actions/delete/{{deed.id}}" method="POST">
         <input class="btn btn--danger" type="submit" value="delete" />
     </form>
-</div>
+</div> -->
 {% endfor %}
-
+</table>
 
 {% endblock %}
+
+
+
+
