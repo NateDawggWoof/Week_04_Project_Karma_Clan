@@ -52,6 +52,9 @@ action_repo.save(action2)
 print(action_repo.select_all())
 print(action_repo.select(2))
 
+action2.value =150
+action_repo.update(action2)
+
 deed1 = Deed(user1,action1,"14/08/2021")
 deed_repo.save(deed1)
 

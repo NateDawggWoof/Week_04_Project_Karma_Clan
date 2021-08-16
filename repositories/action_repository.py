@@ -45,3 +45,9 @@ def delete(id):
 def delete_all():
     sql = "DELETE FROM actions"
     run_sql(sql)
+
+
+def update(action):
+    sql = "UPDATE actions SET (name, description, type, value ) = (%s,%s,%s, %s) WHERE id = %s"
+    values = [action.name, action.description, action.type, action.value, action.id]
+    run_sql(sql, values)
