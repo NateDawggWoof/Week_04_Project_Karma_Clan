@@ -13,11 +13,11 @@
     <input type="submit" value="Submit">
 </form>
 
-<h2>Users</h2>
+<h2>Actions</h2>
 
-{% for user in all_users  %}
+{% for action in all_actions  %}
 <div>
-    <p>ID: {{user.id}}  Name: {{user.name_first}} {{user.name_last}}  </p>
+    <p>ID: {{action.id}}  Name: {{action.name}} Description: {{action.description}} Points value: {{action.value}}  </p>
     <a href='/admin/usera/edit/{{user.id}}'>
         <button onclick="document.location='default.asp'">Edit User</button>
     </a>
