@@ -35,7 +35,11 @@ user4.total_daily = 2000
 user4.total_overall = 5000000
 user_repo.save(user4)
 
+
 print(user_repo.select_all())
+
+user2.total_daily = 500
+user_repo.update(user2)
 
 print(user_repo.select(2))
 

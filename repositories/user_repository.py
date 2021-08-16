@@ -48,3 +48,8 @@ def delete(id):
 def delete_all():
     sql = "DELETE FROM users"
     run_sql(sql)
+
+def update(user):
+    sql = "UPDATE users SET (name, goal_daily, total_daily, total_overall) = (%s,%s,%s,%s) WHERE id = %s"
+    values = [user.name, user.goal_daily, user.total_daily, user.total_overall, user.id]
+    run_sql(sql, values)
