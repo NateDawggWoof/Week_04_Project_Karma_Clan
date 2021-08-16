@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 
 from controllers.Admin_controller import admin_blueprint
-from controllers.admin.actions_controller import admin_actions_blueprint
+from controllers.actions_controller import admin_actions_blueprint
 
 
 app = Flask(__name__)
