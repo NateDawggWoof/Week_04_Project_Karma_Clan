@@ -28,3 +28,19 @@ def user_delete(id):
     user_repo.delete(id)
     return redirect('/admin/usersa')
 
+
+@admin_blueprint.route("/admin/usera/edit/<id>", methods=['POST'])
+def update_user(id):
+    name_first = request.form['name_first']
+    name_last     = request.form['name_last']
+    goal_daily    = request.form['goal_daily']
+    
+    user = user_repo.select(id)
+    
+    user.name_first = name_first
+    user.name_last = name_last
+    user.goal_daily = goal_daily
+    user_repo.update(user)
+    
+    return redirect('/admin/usersa')
+
