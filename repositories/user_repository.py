@@ -14,7 +14,7 @@ def save(user):
 def select_all():
     users = []
 
-    sql = "SELECT * FROM users"
+    sql = "SELECT * FROM users ORDER BY name_last"
     results = run_sql(sql)
 
     for row in results:
@@ -53,3 +53,7 @@ def update(user):
     sql = "UPDATE users SET (name_first, name_last, goal_daily, total_daily, total_overall) = (%s,%s,%s,%s, %s) WHERE id = %s"
     values = [user.name_first, user.name_last , user.goal_daily, user.total_daily, user.total_overall, user.id]
     run_sql(sql, values)
+
+# def order_surname():
+#     sql = "SELECT * FROM users ORDER BY name_last"
+#     run_sql(sql)

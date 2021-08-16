@@ -13,6 +13,7 @@ def admin():
 
 @admin_blueprint.route('/admin/usersa')
 def users_a():
+    # user_repo.order_surname()
     users = user_repo.select_all()
     return render_template("admin/show_users.html", all_users = users)
 

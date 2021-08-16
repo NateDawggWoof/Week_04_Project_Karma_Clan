@@ -1,7 +1,17 @@
 {% extends 'base.html'%}
 
 {% block content %}
+<h2>Edit User</h2>
 <p>ID: {{user.id}}  Name: {{user.name}}  </p>
+
+<form>
+    <label for="name_first">First name:</label><br>
+    <input type="text" id="name_first" name="name_first"><br>
+    <label for="name_last">Last name:</label><br>
+    <input type="text" id="name_last" name="name_last">
+    <label for="goal_daily">Daily Goal:</label><br>
+    <input type="number" id="goal_daily" name="goal_daily">
+</form>
 
 
 {% endblock %}
