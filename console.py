@@ -11,25 +11,25 @@ import repositories.deed_repository as deed_repo
 
 
 
-user1 = User("Nathan Pianu", 1000)
+user1 = User("Nathan", "Pianu", 1000)
 
 user1.total_daily = 100
 user1.total_overall = 1100
 user_repo.save(user1)
 
-user2 = User("Lauren Fraser", 1000)
+user2 = User("Lauren", "Fraser", 1000)
 
 user2.total_daily = 250
 user2.total_overall = 2100
 user_repo.save(user2)
 
-user3 = User("Steven Swan", 1000)
+user3 = User("Steven", "Swan", 1000)
 
 user3.total_daily = 50
 user3.total_overall = 500
 user_repo.save(user3)
 
-user4 = User("Ghandi Bhuda", 1000)
+user4 = User("Ghandi", "Bhuda", 1000)
 
 user4.total_daily = 2000
 user4.total_overall = 5000000

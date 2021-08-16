@@ -5,7 +5,8 @@ DROP TABLE users;
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255),
+    name_first VARCHAR (255),
+    name_last VARCHAR (255),
     goal_daily INT,
     total_daily INT,
     total_overall INT
