@@ -23,15 +23,13 @@
 
 {% for action in all_actions  %}
 <div>
-    <p>ID: {{action.id}}  Name: {{action.name}} Description: {{action.description}} Points value: {{action.value}}  </p>
-    <a href='/admin/actiona/edit/{{action.id}}'>
-        <button onclick="document.location='default.asp'">Edit User</button>
+    <p>ID: {{action.id}} Name: {{action.name}}  Desription: {{action.description}}  Name: {{action.value}}  </p>
+    <a href='/admin/actions/edit/{{action.id}}'>
+        <button onclick="document.location='default.asp'">Edit</button>
     </a>
     <form action="/admin/actions/delete/{{action.id}}" method="POST">
         <input class="btn btn--danger" type="submit" value="delete" />
     </form>
-
-
 </div>
 {% endfor %}
 

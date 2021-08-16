@@ -30,4 +30,22 @@ def new_action():
     
     action_repo.save(action)
     
-    return redirect('/admin/actions')    
+    return redirect('/admin/actions')
+
+@admin_actions_blueprint.route('/admin/actions/edit/<id>')
+def action_edit(id):
+    action = action_repo.select(id)
+    return render_template("admin/actions/edit.html", action = action) 
+
+@admin_actions_blueprint.route("/admin/actions/edit/<id>", methods=['POST'])
+def update_action(id):
+    action_name = request.form['action_name']
+    action_description = request.form['action_description']
+    action_type = request.form['action_type']
+    action_value = request.form['action_value']
+    
+    action = Action(action_name,action_description,action_type,action_value,id)
+    
+    action_repo.update(action)
+    
+    return redirect('/admin/actions')   

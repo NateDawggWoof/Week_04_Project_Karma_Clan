@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<h2>Edit Action</h2>
+<p>ID: {{action.id}}  Name: {{action.name}}</p>
+
+<form action="/admin/actions/edit/{{action.id}}" method="post">
+    <label for="action_name">Action Name:</label><br>
+    <input type="text" id="action_name" name="action_name" value="{{action.name}}" required autofocus> <br>
+  
+    <label for="action_description">Action Description:</label><br>
+    <input type="text" id="action_description" name="action_description" value="{{action.description}}" required> <br>
+
+    <label for="action_type">Action Type:</label><br>
+    <input type="text" id="action_type" name="action_type" value="{{action.type}}" required> <br>
+  
+    <label for="action_value">Action Value:</label><br>
+    <input type="number" id="action_value" name="action_value" value={{action.value}} required>
+   
+    <input type="submit" value="Submit">
+</form>
+
+
+{% endblock %}
