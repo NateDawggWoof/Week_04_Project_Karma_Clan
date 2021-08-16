@@ -3,13 +3,19 @@
 {% block content %}
 
 <h2>Add New Action</h2>
-<form action="/admin/actiona/new" method="post">
+<form action="/admin/actions/new" method="post">
     <label for="action_name">Action Name:</label><br>
-    <input type="text" id="action_name" name="name_first" value="?" required autofocus> <br>
-    <label for="name_last">Last Name:</label><br>
-    <input type="text" id="name_last" name="name_last" value="?" required> <br>
-    <label for="goal_daily">Daily Goal:</label><br>
-    <input type="number" id="goal_daily" name="goal_daily" value="1000" required>
+    <input type="text" id="action_name" name="action_name" value="?" required autofocus> <br>
+  
+    <label for="action_description">Action Description:</label><br>
+    <input type="text" id="action_description" name="action_description" value="?" required> <br>
+
+    <label for="action_type">Action Type:</label><br>
+    <input type="text" id="action_type" name="action_type" value="?" required> <br>
+  
+    <label for="action_value">Action Value:</label><br>
+    <input type="number" id="action_value" name="action_value" value="100" required>
+   
     <input type="submit" value="Submit">
 </form>
 
