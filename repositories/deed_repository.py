@@ -67,3 +67,21 @@ def update(deed):
     sql = "UPDATE deeds SET (user_id, action_id, date) = (%s,%s,%s) WHERE id = %s"
     values = [deed.user.id, deed.action.id, deed.date, deed.id]
     run_sql(sql, values)
+
+
+
+
+def select_all_by_user_date(id):
+    deeds = []
+
+    sql = "SELECT * FROM deeds WHERE user_id = %s ORDER BY date"
+    values = [id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        user = user_repo.select(row['user_id'])
+        action = action_repo.select(row['action_id'])
+
+        deed = Deed(user, action, row['date'], row['id'])
+        deeds.append(deed)
+    return deeds

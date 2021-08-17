@@ -13,7 +13,6 @@ admin_deeds_blueprint = Blueprint("admin_deeds", __name__)
 def admin():
     deeds = deed_repo.select_all()
     users = user_repo.select_all()
-    # user = user_repo.select(deed.user)
     actions = action_repo.select_all()
     return render_template("admin/deeds/index.html", all_deeds = deeds, all_users = users, all_actions = actions)
 
@@ -59,3 +58,11 @@ def update_deed(id):
     deed_repo.update(deed)
     
     return redirect('/admin/deeds') 
+
+
+@admin_deeds_blueprint.route('/admin/deeds/user/<id>')
+def deeds_user(id):
+    running_total = 0
+    user = user_repo.select(id)
+    deeds = deed_repo.select_all_by_user_date(id)
+    return render_template("admin/deeds/user/index.html", all_deeds = deeds, user = user, running_total = running_total)

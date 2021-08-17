@@ -1,0 +1,52 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+
+<h2>{{user.name_first}} {{user.name_last}} Deeds</h2>
+
+
+
+<table>
+    <tr>
+      <th>Deed ID</th>
+      <th>User</th>
+      <th>Action</th>
+      <th>Value</th>
+      <th>Date</th>
+      <th>Running Total</th>
+    </tr>
+
+{% with running_total = 0 %}
+{% for deed in all_deeds  %}
+{% {{running_total}} = {{running_total}} + {{deed.action.value}} %}
+
+<tr>
+    <td><a href="/admin/deeds/edit/{{deed.id}}">{{deed.id}}</a></td>
+    <td><a href="/admin/deeds/user/{{deed.user.id}}">{{deed.user.name_first}} {{deed.user.name_last}}</a></td>
+    <td>{{deed.action.name}}</td>
+    <td>{{deed.action.value}}</td>
+    <td>{{deed.date}}</td>
+    <td>{{running_total}}</td>
+</tr>
+
+
+
+<!-- <div>
+    <p>ID: {{deed.id}} User: {{deed.user.name_first}}  Action: {{deed.action.name}}  Date: {{deed.date}}  </p>
+    <a href='/admin/actions/edit/{{deed.id}}'>
+        <button onclick="document.location='default.asp'">Edit</button>
+    </a>
+    <form action="/admin/actions/delete/{{deed.id}}" method="POST">
+        <input class="btn btn--danger" type="submit" value="delete" />
+    </form>
+</div> -->
+{% endfor %}
+{% endwith %}
+</table>
+
+{% endblock %}
+
+
+
+
