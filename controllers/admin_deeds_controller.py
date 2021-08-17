@@ -38,3 +38,24 @@ def new_action():
     deed_repo.save(deed)
     
     return redirect('/admin/deeds')
+
+@admin_deeds_blueprint.route('/admin/deeds/edit/<id>')
+def edit_deed(id):
+    action = action_repo.select(id)
+    return render_template("admin/deeds/edit.html", action = action) 
+
+@admin_deeds_blueprint.route("/admin/deeds/edit/<id>", methods=['POST'])
+def update_deed(id):
+    deed_user_id = request.form['deed_user']
+    deed_user = user_repo.select(deed_user_id)
+
+    deed_action_id = request.form['deed_action']
+    deed_action = action_repo.select(deed_action_id)
+    deed_date = request.form['deed_date']
+   
+    
+    deed = Deed(deed_user,deed_action,deed_date,id)
+    
+    deed_repo.update(deed)
+    
+    return redirect('/admin/deeds') 
