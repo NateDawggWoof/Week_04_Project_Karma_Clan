@@ -15,3 +15,20 @@ def admin():
     users = user_repo.select_all()
     actions = action_repo.select_all()
     return render_template("admin/deeds/index.html", all_deeds = deeds, all_users = users, all_actions = actions)
+
+
+@admin_deeds_blueprint.route("/admin/deeds/new", methods=['POST'])
+def new_action():
+    deed_user_id = request.form['deed_user']
+    deed_user = user_repo.select(deed_user_id)
+
+    deed_action_id = request.form['deed_action']
+    deed_action = action_repo.select(deed_action_id)
+    deed_date = request.form['deed_date']
+   
+    
+    deed = Deed(deed_user,deed_action,deed_date)
+    
+    deed_repo.save(deed)
+    
+    return redirect('/admin/deeds')
