@@ -13,8 +13,14 @@ admin_deeds_blueprint = Blueprint("admin_deeds", __name__)
 def admin():
     deeds = deed_repo.select_all()
     users = user_repo.select_all()
+    # user = user_repo.select(deed.user)
     actions = action_repo.select_all()
     return render_template("admin/deeds/index.html", all_deeds = deeds, all_users = users, all_actions = actions)
+
+@admin_deeds_blueprint.route("/admin/deeds/delete/<id>", methods=['POST'])
+def delete_deed(id):
+    deed_repo.delete(id)
+    return redirect('/admin/deeds')
 
 
 @admin_deeds_blueprint.route("/admin/deeds/new", methods=['POST'])
