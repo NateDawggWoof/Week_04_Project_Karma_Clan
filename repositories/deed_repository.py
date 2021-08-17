@@ -31,12 +31,15 @@ def select_all():
 def select(id):
     deed = None
 
-    sql = "SELECT * FROM actions WHERE id = %s"
+    sql = "SELECT * FROM deeds WHERE id = %s"
     values = [id]
     result = run_sql(sql,values)[0]
 
     if result is not None:
-        deed = Deed(result['user_id'], result['action_id'], result['date'], result['id'])
+        user = user_repo.select(result['user_id'])
+        action = action_repo.select(result['action_id'])
+
+        deed = Deed(user, action, result['date'], result['id'])
     
     return deed
 

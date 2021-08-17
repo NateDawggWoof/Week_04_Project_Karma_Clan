@@ -17,7 +17,7 @@ def admin():
     actions = action_repo.select_all()
     return render_template("admin/deeds/index.html", all_deeds = deeds, all_users = users, all_actions = actions)
 
-@admin_deeds_blueprint.route("/admin/deeds/delete/<id>", methods=['POST'])
+@admin_deeds_blueprint.route("/admin/edits/delete//<id>", methods=['POST'])
 def delete_deed(id):
     deed_repo.delete(id)
     return redirect('/admin/deeds')
@@ -41,8 +41,8 @@ def new_action():
 
 @admin_deeds_blueprint.route('/admin/deeds/edit/<id>')
 def edit_deed(id):
-    action = action_repo.select(id)
-    return render_template("admin/deeds/edit.html", action = action) 
+    deed = deed_repo.select(id)
+    return render_template("admin/deeds/edit.html", deed = deed) 
 
 @admin_deeds_blueprint.route("/admin/deeds/edit/<id>", methods=['POST'])
 def update_deed(id):

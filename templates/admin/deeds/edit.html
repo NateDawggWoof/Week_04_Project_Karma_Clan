@@ -4,20 +4,22 @@
 <h2>Edit Deed</h2>
 <p>ID: {{deed.id}}</p>
 
-<form action="/admin/actions/edit/{{action.id}}" method="post">
-    <label for="action_name">Action Name:</label><br>
-    <input type="text" id="action_name" name="action_name" value="{{action.name}}" required autofocus> <br>
-  
-    <label for="action_description">Action Description:</label><br>
-    <input type="text" id="action_description" name="action_description" value="{{action.description}}" required> <br>
 
-    <label for="action_type">Action Type:</label><br>
-    <input type="text" id="action_type" name="action_type" value="{{action.type}}" required> <br>
+<form action="/admin/deeds/edit/{{deed.id}}" method="post">
+    <label for="deed_user">User:</label><br>
+    <input type="text" id="deed_user" name="deed_user" value="?" required autofocus> <br>
   
-    <label for="action_value">Action Value:</label><br>
-    <input type="number" id="action_value" name="action_value" value={{action.value}} required>
-   
+    <label for="deed_action">Action:</label><br>
+    <input type="text" id="deed_action" name="deed_action" value="?" required> <br>
+
+    <label for="deed_date">Date:</label><br>
+    <input type="text" id="deed_date" name="deed_date" value="?" required> <br>
+  
     <input type="submit" value="Submit">
+</form>
+
+<form action="/admin/edits/delete/{{deed.id}}" method="POST">
+    <input class="btn btn--danger" type="submit" value="delete" />
 </form>
 
 
