@@ -85,3 +85,41 @@ def select_all_by_user_date(id):
         deed = Deed(user, action, row['date'], row['id'])
         deeds.append(deed)
     return deeds
+
+def select_all_by_user_and_date(id,date):
+    deeds = []
+
+    sql = "SELECT * FROM deeds WHERE user_id = %s ORDER BY date"
+    values = [id,date]
+    results = run_sql(sql, values)
+
+    for row in results:
+        user = user_repo.select(row['user_id'])
+        action = action_repo.select(row['action_id'])
+
+        deed = Deed(user, action, row['date'], row['id'])
+        deed.date = str(deed.date)
+        if deed.date == date:
+            deeds.append(deed)
+    return deeds
+
+def sum_value_select_all_by_user_and_date(id,date):
+    deeds = []
+    total_actions_value = 0
+
+    sql = "SELECT * FROM deeds WHERE user_id = %s ORDER BY date"
+    values = [id,date]
+    results = run_sql(sql, values)
+
+    for row in results:
+        user = user_repo.select(row['user_id'])
+        action = action_repo.select(row['action_id'])
+
+
+        deed = Deed(user, action, row['date'], row['id'])
+
+        deed.date = str(deed.date)
+        if deed.date == date:
+            deeds.append(deed)
+            total_actions_value += action.value
+    return total_actions_value

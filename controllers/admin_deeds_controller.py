@@ -60,9 +60,22 @@ def update_deed(id):
     return redirect('/admin/deeds') 
 
 
+# @admin_deeds_blueprint.route('/admin/deeds/user/<id>')
+# def deeds_user(id):
+#     running_total = 0
+#     user = user_repo.select(id)
+#     deeds = deed_repo.select_all_by_user_date(id)
+#     date =
+
+#     return render_template("admin/deeds/user/index.html", all_deeds = deeds, user = user, running_total = running_total)
+
 @admin_deeds_blueprint.route('/admin/deeds/user/<id>')
 def deeds_user(id):
     running_total = 0
     user = user_repo.select(id)
-    deeds = deed_repo.select_all_by_user_date(id)
-    return render_template("admin/deeds/user/index.html", all_deeds = deeds, user = user, running_total = running_total)
+    date = "17/08/2021"
+    deeds = deed_repo.select_all_by_user_and_date(id,date) 
+    total_value = deed_repo.sum_value_select_all_by_user_and_date(id,date)
+
+    
+    return render_template("admin/deeds/user/index.html", all_deeds = deeds, user = user, running_total = running_total, total_value = total_value)
