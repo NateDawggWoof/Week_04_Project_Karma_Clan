@@ -48,10 +48,10 @@
     </tr>
 
 {% for deed in all_deeds  %}
- 
+
 <tr>
-    <td>{{deed.id}}</td>
-    <td>{{deed.user}} {{deed.user.name_last}}</td>
+    <td><a href="/admin/deeds/edit/<id>">{{deed.id}}</a></td>
+    <td><a href="/admin/deeds/user/<id>">{{deed.user.name_first}} {{deed.user.name_last}}</a></td>
     <td>{{deed.action.name}}</td>
     <td>{{deed.action.value}}</td>
     <td>{{deed.date}}</td>

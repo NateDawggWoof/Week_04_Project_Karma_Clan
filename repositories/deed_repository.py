@@ -2,6 +2,9 @@ from db.run_sql import run_sql
 
 from models.deed import Deed
 
+import repositories.user_repository as user_repo
+import repositories.action_repository as action_repo
+
 def save(deed):
     sql = "INSERT INTO deeds (user_id, action_id, date) VALUES (%s,%s,%s) RETURNING id"
     values = [deed.user.id, deed.action.id, deed.date]
@@ -17,7 +20,10 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        deed = Deed(row['user_id'], row['action_id'], row['date'], row['id'])
+        user = user_repo.select(row['user_id'])
+        action = action_repo.select(row['action_id'])
+
+        deed = Deed(user, action, row['date'], row['id'])
         deeds.append(deed)
     return deeds
 
