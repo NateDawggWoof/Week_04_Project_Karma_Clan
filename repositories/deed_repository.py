@@ -88,9 +88,10 @@ def select_all_by_user_date(id):
 
 def select_all_by_user_and_date(id,date):
     deeds = []
+    date = str(date)
 
     sql = "SELECT * FROM deeds WHERE user_id = %s ORDER BY date"
-    values = [id,date]
+    values = [id]
     results = run_sql(sql, values)
 
     for row in results:
@@ -99,6 +100,7 @@ def select_all_by_user_and_date(id,date):
 
         deed = Deed(user, action, row['date'], row['id'])
         deed.date = str(deed.date)
+        
         if deed.date == date:
             deeds.append(deed)
     return deeds
@@ -106,9 +108,10 @@ def select_all_by_user_and_date(id,date):
 def sum_value_select_all_by_user_and_date(id,date):
     deeds = []
     total_actions_value = 0
+    date =str(date)
 
     sql = "SELECT * FROM deeds WHERE user_id = %s ORDER BY date"
-    values = [id,date]
+    values = [id]
     results = run_sql(sql, values)
 
     for row in results:
