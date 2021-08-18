@@ -202,7 +202,7 @@ def select_all_by_user_and_date_display_common_action(id,date):
     common_list = []
 
     for type in combined_action_types:
-        common = Counter(types_list).most_common()
+        common = Counter(types_list).most_common()[0]
 
         if common[1] >= counter:
             common_list.append(common[0])
