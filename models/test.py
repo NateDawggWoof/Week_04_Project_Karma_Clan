@@ -16,7 +16,7 @@ def least(data_list1,data_list2):
         least_common = Counter(data_list).most_common()[-1]
         # print(least_common_list)
         # print(data_list)
-        print(least_common[1])
+        # print(least_common[1])
         if least_common[1] <= counter:
             least_common_list.append(least_common[0])
             counter = least_common[1]
@@ -27,5 +27,5 @@ def least(data_list1,data_list2):
 
 test_1 = least(data_list,data_list2)
 
-print(*test_1)
+print(test_1)
 

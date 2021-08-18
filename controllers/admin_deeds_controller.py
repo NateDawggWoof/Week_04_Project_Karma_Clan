@@ -1,11 +1,15 @@
+from models.test import least
 from flask import Flask, render_template, request, redirect, Blueprint
 
 from models.action import Action
 from models.user import User
 from models.deed import Deed 
+
 import repositories.user_repository as user_repo
 import repositories.deed_repository as deed_repo
 import repositories.action_repository as action_repo
+
+
 
 admin_deeds_blueprint = Blueprint("admin_deeds", __name__)
 
@@ -65,9 +69,12 @@ def deeds_user(id):
     user = user_repo.select(id)
     deeds = deed_repo.select_all_by_user_date(id)
     daily_total = "Choose Date"
+    least_common_action_type = ""
+    common_action_type = ""
 
 
-    return render_template("admin/deeds/user/index.html", all_deeds = deeds, user = user, daily_total = daily_total)
+
+    return render_template("admin/deeds/user/index.html", all_deeds = deeds, user = user, daily_total = daily_total,lcat = least_common_action_type, cat=common_action_type)
 
 @admin_deeds_blueprint.route('/admin/deeds/user/view/<id>', methods=['POST'])
 def deeds_user_view(id):
@@ -75,6 +82,8 @@ def deeds_user_view(id):
     date = request.form['deed_user_date']
     deeds = deed_repo.select_all_by_user_and_date(id,date) 
     daily_total = deed_repo.sum_value_select_all_by_user_and_date(id,date)
+    least_common_action_type = deed_repo.select_all_by_user_and_date_display_uncommon_action(id,date)
+    common_action_type = deed_repo.select_all_by_user_and_date_display_common_action(id,date)
 
     
-    return render_template("admin/deeds/user/index.html", all_deeds = deeds, user = user, daily_total = daily_total)
+    return render_template("admin/deeds/user/index.html", all_deeds = deeds, user = user, daily_total = daily_total, lcat = least_common_action_type, cat =common_action_type)
