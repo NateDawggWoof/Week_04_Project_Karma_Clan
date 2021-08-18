@@ -7,14 +7,14 @@
 
 <p>Daily Goal: {{user.goal_daily}}</p>
 <p>Daily Total: {{daily_total}}</p>
-<p>most occouring actiong type: {{cat}}</p>
-<p>least occouring action type:{{lcat}}</p>
+<p>most occouring action types: {{cat}}</p>
+<p>least occouring action types:{{lcat}}</p>
 
 
 <form action="/admin/deeds/user/view/{{user.id}}" method="post">
 
   <label for="deed_user_date">View Date:</label><br>
-  <input type="text" id="deed_user_date" name="deed_user_date" value="??-??-????" required> <br>
+  <input type="text" id="deed_user_date" name="deed_user_date" value="??/??/????" required> <br>
 
   <input type="submit" value="Submit">
 </form>
@@ -24,8 +24,9 @@
       <th>Deed ID</th>
       <th>User</th>
       <th>Action</th>
-      <th>Value</th>
+      <th>Action Type</th>
       <th>Date</th>
+      <th>Value</th>
       <th>Running Total</th>
     </tr>
     
@@ -39,8 +40,9 @@
     <td>{{deed.id}}</a></td>
     <td>{{deed.user.name_first}} {{deed.user.name_last}}</a></td>
     <td>{{deed.action.name}}</td>
-    <td>{{deed.action.value}}</td>
+    <td>{{deed.action.type}}</td>
     <td>{{deed.date}}</td>
+    <td>{{deed.action.value}}</td>
     <td></td>
 </tr>
 {% endfor %}

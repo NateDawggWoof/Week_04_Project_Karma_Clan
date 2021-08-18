@@ -1,0 +1,97 @@
+
+/* All */
+
+* {
+    font-family: 'Karma', serif;
+}
+
+h1 {
+    font-size: 2.5rem;
+
+}
+h2 {
+    font-size: 1.75rem;
+
+}
+
+
+p {
+    font-size: 1.35rem;
+
+}
+
+
+a:visited {
+    color: inherit;
+  }
+  
+  a:hover {
+    color: red;
+  }
+
+body{
+    background-color:ivory;
+}
+
+/* content */
+#content {
+    padding-left: 50px;
+}
+
+/* Homepage */
+
+
+/* admin tools */
+
+.admin_tools ul {
+    padding: 0;
+}
+
+.admin_tools li {
+    font-size: 1.35rem ;
+    list-style-type: none;
+
+
+}
+
+.admin_tools a {
+    text-decoration: none;
+
+
+}
+
+/* New submissions */
+
+.new_submission form {
+    display: flex;
+    flex-direction: column;
+    max-width: 150px;
+}
+
+.new_submission form label {
+    margin-top: 10px;
+
+}
+
+.submit_button {
+
+    margin-top: 10px;
+
+}
+
+.edit_delete_buttons {
+    display: flex;
+    align-items: center;
+}
+
+.edit_delete_buttons a button {
+    margin-left: 10px;
+
+}
+
+.edit_delete_buttons form {
+    margin-left: 10px;
+
+}
+
+

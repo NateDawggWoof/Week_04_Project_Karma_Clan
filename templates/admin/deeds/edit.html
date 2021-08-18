@@ -7,13 +7,13 @@
 
 <form action="/admin/deeds/edit/{{deed.id}}" method="post">
     <label for="deed_user">User:</label><br>
-    <input type="text" id="deed_user" name="deed_user" value="?" required autofocus> <br>
+    <input type="text" id="deed_user" name="deed_user" value="{{deed.user.id}}" required autofocus> <br>
   
     <label for="deed_action">Action:</label><br>
-    <input type="text" id="deed_action" name="deed_action" value="?" required> <br>
+    <input type="text" id="deed_action" name="deed_action" value="{{deed.action.id}}" required> <br>
 
     <label for="deed_date">Date:</label><br>
-    <input type="text" id="deed_date" name="deed_date" value="?" required> <br>
+    <input type="text" id="deed_date" name="deed_date" value="{{deed.date}}" required> <br>
   
     <input type="submit" value="Submit">
 </form>

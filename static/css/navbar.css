@@ -1,0 +1,25 @@
+.navbar {
+    font-size: 1.35rem;
+
+  
+
+
+}
+
+.navbar li {
+    list-style-type: none;
+    padding: 10px;
+
+
+}
+
+.navbar ul {
+    display: flex;
+
+
+
+}
+
+.navbar i {
+    margin-right: 5px;
+}
