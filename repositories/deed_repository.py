@@ -156,8 +156,11 @@ def select_all_by_user_and_date_display_uncommon_action(id,date):
         total_db_action_types.append(action.type)
 
     combined_action_types = total_db_action_types + total_user_actions_types
+    
     types_list = combined_action_types.copy()
+   
     counter = 999999999999
+    
     least_common_list = []
 
     for type in combined_action_types:

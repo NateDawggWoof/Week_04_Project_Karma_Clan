@@ -1,0 +1,23 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+    background-color: ghostwhite;
+    border: 5px solid black ;
+    margin-top: 5px;
+  }
+  
+  td, th {
+    border: 1px solid black;
+    text-align: left;
+    padding: 8px;
+  }
+
+  th {
+    font-weight: 600;
+    font-size: 1.25rem;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
