@@ -39,7 +39,10 @@ body{
 }
 
 /* Homepage */
-
+.home_image img{
+    width: auto;
+    height: 500px;
+}
 
 /* admin tools */
 

@@ -2,28 +2,32 @@
 
 {% block content %}
 
+<div class="new_submission">
 <h2>Add New Action</h2>
 <form action="/admin/actions/new" method="post">
-    <label for="action_name">Action Name:</label><br>
-    <input type="text" id="action_name" name="action_name" value="?" required autofocus> <br>
+    <label for="action_name">Action Name:</label>
+    <input type="text" id="action_name" name="action_name" placeholder="Sponsored Run" required autofocus>
   
-    <label for="action_description">Action Description:</label><br>
-    <input type="text" id="action_description" name="action_description" value="?" required> <br>
+    <label for="action_description">Action Description:</label>
+    <input type="text" id="action_description" name="action_description" placeholder="Raised money for charity by running" required>
 
-    <label for="action_type">Action Type:</label><br>
-    <input type="text" id="action_type" name="action_type" value="?" required> <br>
+    <label for="action_type">Action Type:</label>
+    <input type="text" id="action_type" name="action_type" placeholder="Charity" required>
   
-    <label for="action_value">Action Value:</label><br>
-    <input type="number" id="action_value" name="action_value" value="100" required>
+    <label for="action_value">Action Value:</label>
+    <input type="number" id="action_value" name="action_value" placeholder="200" required>
    
+    <div class="submit_button">
     <input type="submit" value="Submit">
+    </div>
 </form>
-
+</div>
 <h2>Actions</h2>
 
 {% for action in all_actions  %}
-<div>
-    <p>ID: {{action.id}} Name: {{action.name}}  Desription: {{action.description}}  Name: {{action.value}}  </p>
+<div class= edit_delete_buttons >
+    <p>ID: {{action.id}},       Name: {{action.name}}</p>
+
     <a href='/admin/actions/edit/{{action.id}}'>
         <button onclick="document.location='default.asp'">Edit</button>
     </a>
